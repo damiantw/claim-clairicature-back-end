@@ -4,6 +4,7 @@ namespace App\Crypto;
 
 use App\Models\Employee;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Log;
 
 class ClairicaturesContract
 {
@@ -19,12 +20,16 @@ class ClairicaturesContract
 
     public function mint(Employee $employee): string
     {
-        return Arr::get($this->runNodeScript('mint-clairicatures.js', [
+        $transaction = $this->runNodeScript('mint-clairicatures.js', [
             'WALLET_PASSWORD' => config('clairicatures.wallet.password'),
             'WALLET_ENCRYPTED_JSON' => config('clairicatures.wallet.encrypted_json'),
             'NFT_OWNER_ADDRESS' => $employee->web3_address,
             'NFT_ID' => $employee->getKey(),
             'NFT_SECRET' => $employee->secret,
-        ]), 'hash');
+        ]);
+
+        Log::info('MINT_TRANSACTION', $transaction);
+
+        return Arr::get($transaction, 'hash');
     }
 }
