@@ -1,0 +1,8 @@
+/vendor
+/.idea
+.env
+.phpunit.result.cache
+ipfs/
+database/database.sqlite
+database/employees.json
+.DS_Store
