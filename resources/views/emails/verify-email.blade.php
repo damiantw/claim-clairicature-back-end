@@ -9,7 +9,7 @@ You'll need a Web3 wallet.
 
 The [MetaMask](https://metamask.io/) browser extension is recommended.
 
-@component('mail::button', ['url' => config('clairicatures.front_end_url')."/claim?secret={$employee->secret}"])
+@component('mail::button', ['url' => config('clairicatures.front_end_url')."/Claim?secret={$employee->secret}"])
     Claim NFT
 @endcomponent
 
