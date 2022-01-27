@@ -63,7 +63,7 @@ class ClaimClairicatureNonFungibleTokenTest extends TestCase
             'secret' => self::DAMIAN_SECRET,
             'signature' => self::SIGNATURE,
             'web3Address' => self::WEB3_ADDRESS,
-        ])->response->assertJson(['id' => self::DAMIAN_ID, 'contractAddress' => $this->deploymentAddress]);
+        ])->response->assertJson(['id' => self::DAMIAN_ID]);
 
         $this->seeInDatabase('employees', [
             'id' => self::DAMIAN_ID,
