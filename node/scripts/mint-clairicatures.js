@@ -16,7 +16,8 @@ const clairicatures = require(path.join(
             result: await clairicatures.mint(
                 process.env.NFT_OWNER_ADDRESS,
                 process.env.NFT_ID,
-                process.env.NFT_SECRET
+                process.env.NFT_SECRET,
+                { gasPrice: process.env.GAS_PRICE }
             ),
         })
     );

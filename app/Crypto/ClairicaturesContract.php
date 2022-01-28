@@ -26,6 +26,7 @@ class ClairicaturesContract
             'NFT_OWNER_ADDRESS' => $employee->web3_address,
             'NFT_ID' => $employee->getKey(),
             'NFT_SECRET' => $employee->secret,
+            'GAS_PRICE' => config('clairicatures.gas_price'),
         ]);
 
         Log::info('MINT_TRANSACTION', $transaction);

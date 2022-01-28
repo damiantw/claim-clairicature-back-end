@@ -13,4 +13,5 @@ return [
             file_get_contents(__DIR__.'/../blockchain/wallet.json') : null,
         'password' => env('WALLET_PASSWORD'),
     ],
+    'gas_price' => env('GAS_PRICE', 200000000000),
 ];
